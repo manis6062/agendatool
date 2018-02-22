@@ -1,0 +1,69 @@
+<?php
+	//session_start();
+
+    $linkedin_config['base_url']             =   $api_details[4]['api_key'];
+    $linkedin_config['callback_url']         =   $api_details[3]['api_key'];
+    $linkedin_config['linkedin_access']      =   $api_details[0]['api_key'];
+    $linkedin_config['linkedin_secret']      =   $api_details[1]['api_key'];
+    include_once "linkedin.php";
+   
+    
+    # First step is to initialize with your consumer key and secret. We'll use an out-of-band oauth_callback
+    $linkedin = new LinkedIn($linkedin_config['linkedin_access'], $linkedin_config['linkedin_secret'], $linkedin_config['callback_url'] );
+    //$linkedin->debug = true;
+
+	if(isset($_GET['oauth_verifier'])){
+        /*$_SESSION['oauth_verifier']     = $_REQUEST['oauth_verifier'];
+
+        $linkedin->request_token    =   unserialize($_SESSION['requestToken']);
+        $linkedin->oauth_verifier   =   $_SESSION['oauth_verifier'];
+        $linkedin->getAccessToken($_REQUEST['oauth_verifier']);
+
+        $_SESSION['oauth_access_token'] = serialize($linkedin->access_token);*/
+        $this->session->set_userdata('oauth_verifier',$_GET['oauth_verifier']);
+
+        $linkedin->request_token = unserialize($this->session->userdata('requestToken'));
+        $linkedin->oauth_verifier = $this->session->userdata('oauth_verifier');
+        $linkedin->getAccessToken($_GET['oauth_verifier']);
+        $this->session->set_userdata('oauth_access_token',serialize($linkedin->access_token));
+        header("Location: " . $linkedin_config['callback_url']);
+        exit;
+	}
+	else{
+        /*$linkedin->request_token    =   unserialize($_SESSION['requestToken']);
+        $linkedin->oauth_verifier   =   $_SESSION['oauth_verifier'];
+        $linkedin->access_token     =   unserialize($_SESSION['oauth_access_token']);*/
+        $linkedin->request_token = unserialize($this->session->userdata('requestToken'));
+        $linkedin->oauth_verifier = $this->session->userdata('oauth_verifier');
+        $linkedin->access_token = unserialize($this->session->userdata('oauth_access_token'));
+	}
+
+
+    # You now have a $linkedin->access_token and can make calls on behalf of the current member
+    $xml_response = $linkedin->getProfile("~:(id,first-name,last-name,headline,picture-url,email-address,phone-numbers,location)");
+	
+	$result = simplexml_load_string($xml_response);
+	$data = json_encode($result);
+	$array_result = json_decode($data);
+	$id_array = $array_result->id; 
+	$first_name_array = $array_result->{'first-name'};
+	$last_name_array = $array_result->{'last-name'};
+	$picture_url_array = $array_result->{'picture-url'};
+	$email_address_array = $array_result->{'email-address'};
+	$fullname = $first_name_array."_".$last_name_array;
+	$this->session->set_userdata('linkedin_id',$id_array);
+	$this->session->set_userdata('first_name',$first_name_array);
+	$this->session->set_userdata('last_name',$last_name_array);
+	$this->session->set_userdata('linkedin_image_url',$picture_url_array);
+	$this->session->set_userdata('linkedin_username',$fullname);
+	$this->session->set_userdata('linkedin_email_address',$email_address_array);
+	$result = $this->user_model->get_user_by_linkedin_id($id_array)->row_array();
+	if(empty($result))
+	{
+		redirect(site_url('auth/linkedin_register_page'));
+	}
+	else
+	{
+		redirect(site_url('auth/login'));
+	}
+?>

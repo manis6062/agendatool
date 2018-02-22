@@ -1,0 +1,156 @@
+    .portlet.widget{
+        border: none;
+    } 
+
+    .agd-widget {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: 2px 4px 10px rgba(0,0,0,0.12);
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        
+    }
+    
+    .agd-widget .year {
+        position: absolute;
+        top: 10px;
+        font-size: 18px;
+        color: #777;
+        margin-top: 0px;
+        cursor: pointer;
+    }
+    
+    .agd-widget .year.next-year {
+        position: absolute;
+        right: 10px;
+    }.agd-widget .year.prev-year {
+        left: 10px;
+    }
+     .agd-widget .fc-header{
+        background: #ddd;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+     }
+    .agd-widget .fc-header td{
+        padding-top: 15px;  
+     }
+    
+    .agd-widget table.fc-border-separate {
+        border: 1px solid #ddd;
+    }
+    
+    .agd-widget .fc-first.fc-last th {
+        padding: 10px 0;
+    }
+    
+    .agd-widget .fc-button {
+        position: absolute;
+       /* height:1.8em;
+       
+        border-radius: 50%;
+        text-align: center;
+        line-height: 16px;
+        color: #999;
+        font-size: 11px;
+        padding: 0 0.4em;*/
+        border-color: transparent;
+        box-shadow: none;
+        overflow: visible;
+        background-color: transparent;
+            text-align: center;
+    }
+
+    .agd-widget .fc-text-arrow{
+        height:20px;
+        width:20px;
+        line-height: 16px;
+        border:1px solid #ddd;
+        border-radius:50%;
+        display: block;
+    }
+
+    .profile-calendar .fc-day-number{
+        cursor: pointer;
+    }
+
+    .agd-widget .fc-state-hover{
+               background-color: transparent;
+    background-image: none;
+    outline: 0;
+    color: #444;
+    }
+    
+    .agd-widget .fc-button.fc-button-nextYear,
+    .agd-widget .fc-button.fc-button-prevYear {
+        opacity: 0;
+        display: none;
+    }
+    
+    .agd-widget .fc-button.fc-button-next {
+        top: 47%;
+        right: -30px;
+    }
+    
+    .agd-widget .fc-button.fc-button-prev {
+        top: 47%;
+        left: -30px;
+    }
+    
+  /*  .agd-widget .fc-button-prev .fc-text-arrow {
+        margin-left: 2px;
+    }
+    
+    .agd-widget .fc-button-next .fc-text-arrow {
+        margin-right: 2px;
+    }*/
+    
+    .agd-widget .fc-widget-header,
+    .agd-widget .fc-widget-content {
+        border: none;
+        text-align: center;
+    }
+    
+    .agd-widget .fc-day-content {
+        display: none;
+    }
+    
+    .agd-widget .fc-day-number {
+        height: 25px;
+        width: 25px;
+        border-radius: 25px;
+        background: #f44336;
+        font-size: 12px;
+        float: none;
+        text-align: center;
+        line-height: 25px;
+        color: #eee;
+        margin: 10% auto 0 auto;
+    }
+    
+    .agd-widget .fc-day-number.available {
+        background: #4CAF50;
+    }
+    
+    .agd-widget .fc-day-number.unavailable {
+        background: #f44336;
+    }
+    
+    .agd-widget .fc-day-number.notConfirmed {
+        background: #03A9F4;
+    }
+    
+    .agd-widget .fc-state-highlight {
+        background: transparent;
+    }
+
+
+@media (max-width: 767px) {
+
+.agd-widget {
+margin:50px auto;
+width: 85%;
+}
+
+}

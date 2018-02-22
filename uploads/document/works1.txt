@@ -1,0 +1,183 @@
+Array
+(
+    [page] => member/profile/favorite
+    [header] => Favorite
+    [id] => 5
+    [general_user_id] => 2
+    [favorite_ids] => Array
+        (
+            [0] => Array
+                (
+                    [is_favorite_id] => 3
+                )
+
+            [1] => Array
+                (
+                    [is_favorite_id] => 4
+                )
+
+            [2] => Array
+                (
+                    [is_favorite_id] => 5
+                )
+
+        )
+
+    [favorites] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 3
+                    [user_type_id] => 2
+                    [username] => ABCD
+                    [email_address] => abcd@gmail.com
+                    [password] => 5f4dcc3b5aa765d61d8327deb882cf99
+                    [is_active] => 1
+                    [is_first_time_login] => 1
+                    [is_deleted] => 0
+                    [name] => ABCD
+                    [address] => Ason
+                    [zip_code] => 1234
+                    [phone_no] => 8318218
+                    [photo_logo] => image1.jpg
+                    [is_company] => 1
+                    [user_login_id] => 6
+                    [iban_number] => 471847239
+                    [bic_number] => 31279371
+                    [trial_period_id] => 5
+                    [is_trial_period] => 0
+                    [default_language_id] => 1
+                    [created_on] => 2016-02-02 12:05:02
+                    [is_required] => 1
+                )
+
+            [1] => Array
+                (
+                    [id] => 4
+                    [user_type_id] => 2
+                    [username] => abcdd
+                    [email_address] => abrajmaha@gmail.com
+                    [password] => 5f4dcc3b5aa765d61d8327deb882cf99
+                    [is_active] => 1
+                    [is_first_time_login] => 1
+                    [is_deleted] => 0
+                    [name] => abcdd
+                    [address] => fdsjalj
+                    [zip_code] => 12321
+                    [phone_no] => 12321
+                    [photo_logo] => image2.jpg
+                    [is_company] => 1
+                    [user_login_id] => 7
+                    [iban_number] => 1313010
+                    [bic_number] => 2318038120
+                    [trial_period_id] => 6
+                    [is_trial_period] => 0
+                    [default_language_id] => 1
+                    [created_on] => 2016-02-02 12:08:06
+                    [is_required] => 1
+                )
+
+            [2] => Array
+                (
+                    [id] => 5
+                    [user_type_id] => 2
+                    [username] => abcdef
+                    [email_address] => rajmaha@hotmail.com
+                    [password] => 5f4dcc3b5aa765d61d8327deb882cf99
+                    [is_active] => 1
+                    [is_first_time_login] => 1
+                    [is_deleted] => 0
+                    [name] => abcdef
+                    [address] => Ason
+                    [zip_code] => 1234
+                    [phone_no] => 12321
+                    [photo_logo] => image3.jpg
+                    [is_company] => 1
+                    [user_login_id] => 8
+                    [iban_number] => 1239u2189
+                    [bic_number] => 172391279
+                    [trial_period_id] => 7
+                    [is_trial_period] => 0
+                    [default_language_id] => 1
+                    [created_on] => 2016-02-02 12:10:46
+                    [is_required] => 1
+                )
+
+        )
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [userdata] => Array
+        (
+            [id] => 2
+            [user_type_id] => 3
+            [username] => Maharjan
+            [email_address] => rajmaha@gmail.com
+            [password] => 5f4dcc3b5aa765d61d8327deb882cf99
+            [is_active] => 1
+            [is_first_time_login] => 1
+            [is_deleted] => 0
+            [name] => Sanjay
+            [address] => Ason
+            [zip_code] => 12345
+            [phone_no] => 123456669
+            [photo_logo] => dog.jpg
+            [is_company] => 0
+            [user_login_id] => 5
+            [iban_number] => 12828238432873
+            [bic_number] => 437894732947329
+            [trial_period_id] => 4
+            [is_trial_period] => 0
+            [default_language_id] => 1
+            [created_on] => 2016-02-02 11:50:35
+            [is_required] => 1
+        )
+
+    [same_user] => 1
+    [specialities] => Array
+        (
+            [speciality_name0] => samsung
+            [speciality_name1] => acer
+            [speciality_name2] => philips
+        )
+
+    [trainerdata] => Array
+        (
+            [id] => 2
+            [general_info_id] => 2
+            [education] => Bachelor
+            [work_experience] => 123
+            [cost_per_hour] => 12
+            [visibility_id] => 2
+            [is_favorite] => 0
+            [invite_company_id] => 
+            [is_deleted] => 0
+        )
+
+)

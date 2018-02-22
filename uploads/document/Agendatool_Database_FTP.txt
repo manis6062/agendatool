@@ -1,0 +1,9 @@
+Database: demo4u_agendatool
+Username: demo4u_agenda
+Password: JAm,WnqNQoub
+
+
+FTP Username: agendatool@demo-4u.com
+FTP server: ftp.demo-4u.com
+FTP & explicit FTPS port:  21
+FTP Password: K86X_ar6;XWP

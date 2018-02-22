@@ -1,0 +1,2 @@
+<button type="button" class="btn btn-secondary single-button" onclick="location.href='<?php echo site_url('admin/payment/trial_period_page')?>'"><?php echo $words['DTL_0274'];?></button>
+<button type="button" class="btn btn-secondary single-button" onclick="location.href='<?php echo site_url('admin/payment/subscription_page')?>'"><?php echo $words['DTL_0257'];?></button>

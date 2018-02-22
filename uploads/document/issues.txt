@@ -1,0 +1,19 @@
+Changes
+-> Change photo ko hyperlink matra hos --------------------------------------------------done
+-> Validation option error dekhaune
+-> 3 Category everybox navaikana 3 boxes matra aaunu paryo
+-> Search Speciality
+-> Favourites refresh or something
+-> Trainer ko profile ma trainer ko sabai detail/calendar/video
+-> Afule rakheko agenda aafai accept hunu paryo
+-> Notifications Chaiyo
+-> Pagination -> Dropdown -> Kati Wota view garne vanera
+-> New and old toggle garne dropdown
+-> Control select
+-> Comma in date
+-> Notifications chaiyo (flash data)
+-> Timeframe nasake samma blue
+
+
+
+Search Through Company to trainer ma header ma trainer data kasari nikalne????

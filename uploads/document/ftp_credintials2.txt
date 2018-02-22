@@ -1,0 +1,14 @@
+New Credentials for FTP -
+
+FTP Username: agenda@servernepal.org
+FTP server: ftp.servernepal.org
+FTP & explicit FTPS port:  21
+FTP Password: cCf*QeX*}aBf
+
+Phpmyadmin Link -
+
+http://servernepal.org/phpmyadmin
+
+See username and password in config file.
+
+http://mantisbt.demo-4u.com

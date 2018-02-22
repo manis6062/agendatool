@@ -1,0 +1,6 @@
+1) Company Profile  |_3-4days
+2) Trainer Profile  |
+3) Calendar/Appointment - 1 week
+4) Add to Favorite/Contact - 2 days
+5) Search - 1 week
+6) Admin Section

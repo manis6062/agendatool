@@ -1,0 +1,236 @@
+
+        <div class="row">
+            <div class="col-xs-12">
+
+                    <div class="content-header">
+                    <h2 class="content-header-title"><?php echo $words['DTL_0288'];?> </h2>
+                    <ol class="breadcrumb">
+                          <li><a href="<?php echo site_url('member/profile') ?>"><?php echo $words['DTL_0205'];?></a></li>
+                          <li><a href="<?php echo site_url('member/profile/inbox') ?>"><?php echo $words['DTL_0124'];?></a></li>
+                          <li class="active"><?php echo $words['DTL_0288'];?> </li>
+                        </ol>
+                </div>
+
+
+            <section class="single-panel inbox" id="inbox-detail-page">
+                  
+
+                       
+						<?php if(!empty($specific_message)){
+                            if($specific_message['email_to_id'] == $userdata['id']){
+                            ?>
+                            <div class="mail-block received_from">
+                                <div class="mail-sender">
+                                    <div class="row">
+        							
+                                     <div class="col-sm-4 text-left"> 
+                                           <!--  <p class="date"> <?php echo $specific_message['created_date']?></p> -->
+
+                                            <?php if($specific_message['email_to_id'] == $userdata['id']){?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_receiver').'/'.$specific_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }else{?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_sender').'/'.$specific_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }?>
+
+                                        </div> 
+
+                                          <?php if($specific_message['email_to_id'] == $userdata['id']){?>
+                                       <div class="col-xs-8">
+                                           <!--  <img src="<?php echo base_url()?>uploads/userimage/<?php echo $specific_message['sent_by']['photo_logo']?>" alt="">  -->
+                                            
+                                     <span>
+                                            <strong><?php echo $specific_message['sent_by']['name']?></strong> 
+                                               <!--  [<?php echo $specific_message['sent_by']['email_address']?>] -->
+                                     <!--    <?php echo $words['DTL_0266'];?>
+                                            <strong><?php echo $words['DTL_0150'];?></strong> -->
+                                            </span> 
+                                     </div> 
+                        <?php } elseif($specific_message['email_by_id'] == $userdata['id']){?>
+                   <div class="col-md-8">
+                                          <!--<img src="<?php echo base_url()?>uploads/userimage/<?php echo $specific_message['sent_to']['photo_logo']?>" alt=""> -->
+                                           
+                                          <span>
+                                                 <strong><?php echo $words['DTL_0150'];?></strong>
+                                           <!--  <?php echo $words['DTL_0266'];?>
+                                            <strong><?php echo $specific_message['sent_to']['name']?></strong>  -->
+                                          <!--   [<?php echo $specific_message['sent_to']['email_address']?>] -->
+                                             </span> 
+                                         </div> 
+                        <?php }?>
+                                    </div>
+                                </div>
+                                <div class="view-mail">
+                                    <p><?php echo $specific_message['message']?></p>
+                                </div>
+                                 <div class="mail-date">
+                                 <p class="date"> <?php echo $specific_message['created_date']?></p>
+                                </div>
+                                <div class="arrow-right">
+                                </div>
+                            </div>
+						<?php }
+                        elseif($specific_message['email_by_id'] == $userdata['id']){
+                            ?>
+                            <div class="mail-block sent_to">
+                                <div class="mail-sender">
+                                  <div class="row"> 
+                                        <?php if($specific_message['email_to_id'] == $userdata['id']){?>
+                                      <div class="col-md-8">
+                                          <!--  <img src="<?php echo base_url()?>uploads/userimage/<?php echo $specific_message['sent_by']['photo_logo']?>" alt="">-->
+                                            
+                                          <!--   <span> 
+                                            <strong><?php echo $specific_message['sent_by']['name']?></strong>  -->
+                                               <!--  [<?php echo $specific_message['sent_by']['email_address']?>] -->
+                                      <!--   <?php echo $words['DTL_0266'];?>
+                                            <strong><?php echo $words['DTL_0150'];?></strong> -->
+                                            </span> 
+                                      </div> 
+                                        <?php } elseif($specific_message['email_by_id'] == $userdata['id']){?>
+                                         <div class="col-md-8">
+                                           <!-- <img src="<?php echo base_url()?>uploads/userimage/<?php echo $specific_message['sent_to']['photo_logo']?>" alt=""> -->
+                                           
+                                            <span>
+                                                 <strong><?php echo $words['DTL_0150'];?></strong>
+                                          <!--   <?php echo $words['DTL_0266'];?>
+                                            <strong><?php echo $specific_message['sent_to']['name']?></strong>  -->
+                                          <!--   [<?php echo $specific_message['sent_to']['email_address']?>] -->
+                                            </span>
+                                     </div> 
+                                        <?php }?>
+                                      <div class="col-sm-4 text-right">
+                                          <!--   <p class="date"> <?php echo $specific_message['created_date']?></p> -->
+
+                                            <?php if($specific_message['email_to_id'] == $userdata['id']){?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_receiver').'/'.$specific_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }else{?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_sender').'/'.$specific_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }?>
+
+                                          </div>
+                                    </div> 
+                                </div>
+                                <div class="view-mail">
+                                    <p><?php echo $specific_message['message']?></p>
+                                </div>
+                                 <div class="mail-date">
+                                 <p class="date"> <?php echo $specific_message['created_date']?></p>
+                                </div>
+                                 <div class="arrow-right">
+                                </div>
+                            </div>
+                        <?php
+                            }
+                            }?>
+						<?php if(!empty($child_messages)){
+								foreach($child_messages as $child_message){
+                                    if($child_message['email_to_id'] == $userdata['id']){
+						?>
+    						<div class="mail-block received_from">
+                                <div class="mail-sender">
+                               <div class="row"> 
+        								
+                                     <div class="col-sm-4 text-left"> 
+                                          <!--   <p class="date"> <?php echo $child_message['created_date']?></p> -->
+
+                                            <?php if($child_message['email_to_id'] == $userdata['id']){?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_receiver').'/'.$child_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }else{?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_sender').'/'.$child_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }?>
+
+                                         </div>
+
+                                         <?php if($child_message['email_to_id'] == $userdata['id']){?>
+                                       <div class="col-md-8">
+                                           <!--  <img src="<?php echo base_url()?>uploads/userimage/<?php echo $child_message['sent_by']['photo_logo']?>" alt=""> -->
+                                             <span>
+                                                <strong><?php echo $child_message['sent_by']['name']?></strong> 
+                                              <!--  [<?php echo $child_message['sent_by']['email_address']?>] -->
+                                         <!--      <?php echo $words['DTL_0266'];?>
+                                                <strong><?php echo $words['DTL_0150'];?></strong> -->
+                                            </span> 
+                                      </div> 
+                        <?php } elseif($child_message['email_by_id'] == $userdata['id']){?>
+                     <div class="col-md-8">
+                                          <!--  <img src="<?php echo base_url()?>uploads/userimage/<?php echo $this->session->userdata('photo');?>" alt=""> -->
+                                             <span>
+                                                <strong><?php echo $words['DTL_0150'];?></strong>
+                                               <!--  <?php echo $words['DTL_0266'];?>
+                                                <strong><?php echo $child_message['sent_to']['name']?></strong>  -->
+                                              <!--  [<?php echo $child_message['sent_to']['email_address']?>] -->
+                                  </span>
+                                        </div> 
+                        <?php }?>
+
+                                        </div> 
+                                </div>
+                                <div class="view-mail">
+                                    <p><?php echo $child_message['message']?></p>
+                                </div>
+                                 <div class="mail-date">
+                                 <p class="date"> <?php echo $child_message['created_date']?></p>
+                                </div>
+                                 <div class="arrow-right">
+                                </div>
+                            </div>
+						<?php }
+                        elseif($child_message['email_by_id'] == $userdata['id']){
+                            ?>
+                            <div class="mail-block sent_to">
+                                <div class="mail-sender">
+                                <div class="row"> 
+                                        <?php if($child_message['email_to_id'] == $userdata['id']){?>
+                                     <div class="col-md-8">
+                                           <!--   <img src="<?php echo base_url()?>uploads/userimage/<?php echo $child_message['sent_by']['photo_logo']?>" alt=""> -->
+                                           <span>
+                                                <strong><?php echo $child_message['sent_by']['name']?></strong>
+                                              <!--  [<?php echo $child_message['sent_by']['email_address']?>] -->
+                                           <!--    <?php echo $words['DTL_0266'];?>
+                                                <strong><?php echo $words['DTL_0150'];?></strong> -->
+                                            </span>
+                                     </div> 
+                                        <?php } elseif($child_message['email_by_id'] == $userdata['id']){?>
+                                       <div class="col-md-8">
+                                         <!--   <img src="<?php echo base_url()?>uploads/userimage/<?php echo $this->session->userdata('photo');?>" alt="">  -->
+                                           <span>
+                                                <strong><?php echo $words['DTL_0150'];?></strong>
+                                             <!--    <?php echo $words['DTL_0266'];?>
+                                                <strong><?php echo $child_message['sent_to']['name']?></strong>  -->
+                                              <!--  [<?php echo $child_message['sent_to']['email_address']?>] -->
+                                         </span>
+                                      </div> 
+                                        <?php }?>
+                                        <div class="col-sm-4 text-right"> 
+                                         <!--    <p class="date"> <?php echo $child_message['created_date']?></p> -->
+
+                                            <?php if($child_message['email_to_id'] == $userdata['id']){?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_receiver').'/'.$child_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }else{?>
+                                            <a href="<?php echo site_url('member/profile/delete_mail_by_sender').'/'.$child_message['id']?>" onclick="return confirm('Are you sure to delete this message?')"><button class="btn btn-xs btn-danger tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title=""><i class="fa fa-trash-o"></i></button></a>
+                                            <?php }?>
+
+                                            </div> 
+                                     </div> 
+                                </div>
+                                <div class="view-mail">
+                                    <p><?php echo $child_message['message']?></p>
+                                </div>
+                                 <div class="mail-date">
+                                 <p class="date"> <?php echo $child_message['created_date']?></p>
+                                </div>
+                                 <div class="arrow-right">
+                                </div>
+                            </div>
+                            <?php
+                            } }}?>
+                   
+                </section>
+                <span>
+                <section class="panel-textarea inbox reply-section"><textarea placeholder="Reply message here" cols="10" rows="2" class="form-control parsley-validated" id="text_area"></textarea><button type="submit" class="btn btn-primary" id="send_btn">Send</button><button class="btn btn-default" id="cancel_btn">Cancel</button></section>
+				<input type="hidden" id="parent_id" value="<?php echo $specific_message['id'];?>">
+				<input type="hidden" id="sent_to_id" value="<?php echo $specific_message['sent_to']['id'];?>">
+				<input type="hidden" id="sent_by_id" value="<?php echo $specific_message['sent_by']['id'];?>">
+                </span>
+                 
+            </div>
+        </div>

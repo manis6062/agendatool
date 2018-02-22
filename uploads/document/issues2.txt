@@ -1,0 +1,14 @@
+Changes
+-> Change photo ko hyperlink matra hos --------------------------------------------------done
+-> Validation option error dekhaune -----------------------------------------------------done
+-> 3 Category everybox navaikana 3 boxes matra aaunu paryo ------------------------------done
+-> Search results -> on which basis the search was made should be listed
+-> Favourites refresh or something -> notification chaiyo -------------------------------done
+-> Trainer ko profile ma trainer ko sabai detail/calendar/video -------------------------done
+-> Afule rakheko agenda aafai accept hunu paryo -----------------------------------------done
+-> Pagination -> Dropdown -> Kati Wota view garne vanera --------------------------------done
+-> New and old toggle garne dropdown ----------------------------------------------------done
+-> Control select -----------------------------------------------------------------------done
+-> Comma in date ------------------------------------------------------------------------done
+-> Notifications chaiyo (flash data) ----------------------------------------------------done
+-> Timeframe nasake samma blue

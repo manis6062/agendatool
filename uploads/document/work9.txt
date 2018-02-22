@@ -1,0 +1,17 @@
+friday bahek aru choose garne..... time 8 to 5
+
+day choose garna paune with time as well
+
+
+contact person in company
+
+
+admin user pay garyo ki nai, duration for payment, amount of payment, trial mode number of days setting
+
+traiiner and compnay ko profile aaunu paryo
+
+
+
+register field dynamic garnu paryo....  types of field textfield, dropdown, checkbox,
+
+export function....

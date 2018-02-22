@@ -1,0 +1,287 @@
+    <div class="content-header">
+        <h2 class="content-header-title"><?php echo $words['DTL_0283'];?></h2>
+      </div>
+
+	  <div class="row">
+
+        <div class="col-md-8">
+
+          <div class="row">
+
+            <div class="col-md-4 col-sm-5">
+
+              <div class="thumbnail profile-pic">
+			  <?php if($userdata['photo_logo']==null){
+			  ?>
+			<img src="<?php echo base_url()?>assets/img/default.jpg" alt="Profile Picture">
+			<?php
+			}
+			elseif($userdata['linkedin_image_status'] == 0){
+			?>
+            <img src="<?php echo base_url()?>uploads/userimage/<?php echo $userdata['photo_logo'];?>" alt="Profile Picture">
+			<?php }
+			elseif($userdata['linkedin_image_status'] == 1)
+			{?>
+			<img src="<?php echo $userdata['linkedin_image'];?>" alt="Profile Picture" >
+			<?php }?>
+              </div> <!-- /.thumbnail -->
+
+              <br />
+              <?php if($same_user==0){?>
+
+              <div class="profile-list list-group">  
+                
+                <a href="javascript:;" class="list-group-item" id="add_to_favorite">
+                  <?php if($is_favorite != null){ ?>
+                  <i class="fa fa-star"></i> &nbsp;&nbsp;<?php echo $words['DTL_0114'];?> <i class="fa fa-chevron-right list-group-chevron"></i>
+                  <?php }
+                  else{ ?>
+                  <i class="fa fa-star-o"></i> &nbsp;&nbsp;<?php echo $words['DTL_0023'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                    <?php } ?>
+					<img src="<?php echo base_url()?>assets/img/loader.gif" style="display: none;" width="25" height="25" id="notification_loader_favorite">
+                </a> 
+                <?php if($userdata['is_company']==0 && $this->session->userdata('is_admin')!=1){?>
+                
+                <a href="javascript:;" class="list-group-item" id="contact_trainer_button">
+                  <i class="fa fa-comments-o"></i> &nbsp;&nbsp;<?php echo $words['DTL_0067'];?> <i class="fa fa-chevron-right list-group-chevron"></i>
+                </a> 
+
+				
+				<?php
+				if(!empty($videos))
+                foreach($videos as $video){
+                ?>
+				
+                <div class="video_wrapper"><?php echo $video['video_link']?></div>
+                <?php
+               }
+			   }
+                elseif($this->session->userdata('is_admin')!=1){?>
+                <a href="javascript:;" class="list-group-item" id="contact_company_button">
+                  <i class="fa fa-comments-o"></i> &nbsp;&nbsp;<?php echo $words['DTL_0068'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                </a> 
+                <?php }?>
+              </div> <!-- /.list-group -->
+              <?php }
+              else
+              {
+                if($userdata['is_company']==0 && $userdata['user_type_id']!=1){ ?>
+                <div class="profile-list list-group">
+
+                   <a href="<?php echo site_url('member/favorite');?>" class="list-group-item">
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;
+                <?php echo $words['DTL_0115'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                </a>
+                <a href="<?php echo site_url('member/profile/inbox');?>" class="list-group-item">
+                <i class="fa fa-comments-o"></i>&nbsp;&nbsp;
+                <?php echo $words['DTL_0152'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                </a>
+             </div>
+				<?php
+                if($videos == null)
+                {
+              ?>
+                    <div class="profile-list list-group">
+                        <span class="list-group-item" style="color: red;">
+                            <?php echo $words['DTL_0166'];?> !
+                        </span>
+                    </div>
+
+              <?php
+               }
+               else
+               {
+                foreach($videos as $video){
+
+                ?>
+				
+                <!--<button id="delete_video" class="delete_video" video_id="<?php echo $video['id']?>">Delete this video</button>-->
+                <div class="video_wrapper">
+					<?php echo $video['video_link']?>
+                </div>
+                <?php
+               }
+               }
+             } elseif($this->session->userdata('is_admin')!=1){?>
+             <div class="profile-list list-group">
+
+                   <a href="<?php echo site_url('member/favorite');?>" class="list-group-item">
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;
+                <?php echo $words['DTL_0115'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                </a>
+                <a href="<?php echo site_url('member/profile/inbox');?>" class="list-group-item">
+                <i class="fa fa-comments-o"></i>&nbsp;&nbsp;
+                <?php echo $words['DTL_0152'];?><i class="fa fa-chevron-right list-group-chevron"></i>
+                </a>
+             </div>
+             <?php }?>
+             
+
+             <?php 
+              }
+              ?>
+			  
+				<img src="<?php echo base_url()?>assets/img/loader.gif" style="display: none;" width="25" height="25" id="notification_loader_video_delete">
+            </div> <!-- /.col -->
+
+
+            <div class="col-md-8 col-sm-7 profile-title ">
+
+              
+                <h2><?php echo $userdata['name'];?></h2>
+                <?php if($same_user==1 || $this->session->userdata('is_admin')==1){ ?>
+                <a href="<?php echo site_url('member/profile/edit_profile')."/".$userdata['id'];?>" class="pull-right btn btn-primary"><?php echo $words['DTL_0090'];?></a>
+                <?php } ?>
+             
+
+              <hr />
+
+             
+
+              <ul class="icons-list">
+              
+                <li> <i class="icon-li fa fa-map-marker"></i> <?php echo $userdata['address'];?></li>
+                <li>  <i class="icon-li fa fa-map-marker"></i> <?php echo $userdata['zip_code'];?></li>
+                <li>  <i class="icon-li fa fa-phone"></i> <?php echo $userdata['phone_no'];?></li>
+                <li> <i class="icon-li fa fa-envelope"></i> <?php echo $userdata['email_address'];?></li>
+              </ul>
+
+            
+
+              
+              <hr />
+              <br />
+              <?php if($userdata['is_company']==0 && $userdata['user_type_id']!=1) {?>
+              <h3><?php echo $words['DTL_0270'];?></h3>
+
+              <hr />
+
+             
+              
+              <ul class="icons-list">
+                <li><label> <?php echo $words['DTL_0102'];?>: </label> <?php echo $trainerdata['education'];?></li>
+                <li> <label> <?php echo $words['DTL_0074'];?>: </label> <?php echo $trainerdata['cost_per_hour'];?></li>
+                <?php if(isset($specialities)){?>
+					<li> <label> <?php echo $words['DTL_0248'];?>: </label>
+						<ul>
+							<?php 
+									foreach($specialities as $speciality)
+										 {
+											echo "<li>".$speciality."</li>";
+										 }
+							?>
+						</ul>
+				   </li>  
+				<?php }?>               
+              </ul>
+              <?php
+              }
+              elseif($userdata['is_company'] == 1 && $userdata['user_type_id']!=1)
+              {?>
+              <h4><u><?php echo $words['DTL_0065'];?></u></h4>
+
+              <hr />
+              <ul class="icons-list">
+			  <?php if(isset($specialities)){?>
+                  <li><?php echo $words['DTL_0147'];?>:   
+                        <ul>
+                            <?php 
+                                
+                                    foreach($specialities as $speciality)
+                                        {
+											echo "<li>".$speciality."</li>";
+                                        }
+                                
+                           ?>
+                       </ul>
+                 </li>
+			  <?php }?>
+              </ul>
+              <?php
+              }
+              ?>
+             
+
+
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+
+        </div> <!-- /.col -->
+
+
+        <div class="col-sm-12 col-md-4 col-sidebar-right">
+        
+        <?php if($userdata['is_company']==0 && $userdata['user_type_id']!=1){?>
+        <div class="">
+
+          <div class="portlet widget profile-calendar">
+
+           <div class="agd-widget">
+        <span class="year prev-year"></span>
+        <span class="year next-year"></span>
+        <div id="widget-calender"></div>
+        <!-- /#full-calendar -->
+    </div>
+
+           
+
+          </div> <!-- /.portlet -->
+
+        </div> <!-- /.col-md-8 -->
+      <ul class="calender_note">
+          <li><span class="color_spot available"></span><?php echo $words['DTL_0042'];?></li>
+            <li><span class="color_spot notConfirmed"></span><?php echo $words['DTL_0167'];?></li>
+            <li><span class="color_spot unavailable"></span><?php echo $words['DTL_0277'];?></li>
+        </ul>
+        <?php } ?>
+        
+        </div> <!-- /.col -->
+
+
+      </div> <!-- /.row -->
+
+
+
+      
+
+
+
+
+    </div> <!-- /.content-container -->
+      
+  </div> <!-- /.content -->
+
+</div> <!-- /.container -->
+
+
+<div id="contact_modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title"><?php echo $words['DTL_0128'];?></h3>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="<?php echo site_url('member/profile/invite_company')?>">
+        <?php echo $words['DTL_0235'];?>: <input type="text" id="select_company" name="select_company">
+		<img src="<?php echo base_url()?>assets/img/loader.gif" style="display: none;" width="25" height="25" id="notification_loader_select_company">
+        <ul id="selected_company" name="selected_company"></ul>
+        <h5><?php echo $words['DTL_0129'];?></h5><br/>
+        <?php echo $words['DTL_0156'];?>: <input type="text" name="company_name" id="company_name"><br/>
+        <?php echo $words['DTL_0105'];?>: <input type="text" name="company_email" id="company_email"><br/>
+        <?php echo $words['DTL_0151'];?>:<br/>
+        <textarea name="company_message" id="company_message"></textarea>
+        <input type="hidden" id="user_email" name="user_email" value="<?php echo $userdata['email_address']?>">
+        <input type="hidden" id="username" name="username" value="<?php echo $userdata['name'];?>">
+        <input type="hidden" id="user_id" name="user_id" value="<?php echo $userdata['id']?>">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $words['DTL_0056'];?></button>
+        <button type="submit" name="submit" id="submit" class="btn btn-primary"><?php echo $words['DTL_0244'];?>!</button>
+      </div>
+
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
